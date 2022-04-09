@@ -106,13 +106,13 @@ const questions = [
     {
         // GitHub link 
         type: 'input',
-        name: ' link',
+        name: 'link',
         message: 'Enter the GitHub link to your project. (Required)',
         validate: linkInput => {
             if (linkInput) {
                 return true;
             } else {
-                console.log('Pleane enter your name!');
+                console.log('Please enter your name!');
                 return false;
             }
         }

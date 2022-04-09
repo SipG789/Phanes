@@ -48,7 +48,7 @@ function generateMarkdown(data) {
 
   ### Questions
   Feel free to contact me at:
-  GitHub: (https://github.com/${data.link})
+  GitHub: "https://github.com/${data.link}"
   Email: ${data.email}
 `;
 }
