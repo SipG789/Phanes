@@ -11,24 +11,24 @@
   -[Questions](#link)
 
   ### Description
-  In this application the user is able to create a professional readme.md file.
+  in this application the user is able to create a professional readme
 
   ### Install
-  Download the folder from my GitHub repository and install inquirer.
+  download from repo and install inquirer
 
   ### Usage
-  Run Node index in the terminal. Then answer the questions that are prompted. When you are done, a README.md file will be created with the information you provided.
+  Run node index and answer the questions prompted.
 
   ### Collaborators
   undefined
 
   ### Instructions
-  Download folder, install inquierer, run node index. 
+  Answer questions and the app will generate a readme with the info provided.
 
   ### Licenses 
   Apache2.0
 
   ### Questions
   Feel free to contact me at:
-  GitHub: "https://github.com/sipg789/phanes"
+  GitHub: "https://github.com/sipg798/phanes"
   Email: sipg789@gmail.com

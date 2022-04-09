@@ -16,7 +16,7 @@
 
 ### Install
  The following is a video showing how this application works. 
-
+ [![Watch the video](./Develop/Week%209%20-%20Challenge.gif)]
 ### Usage
   Accepted Criteria
 ```
