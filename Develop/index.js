@@ -99,7 +99,7 @@ const questions = [
     {
         // licenses 
         type: 'checkbox',
-        name: 'languages',
+        name: 'licenses',
         message: 'What licenses did you use for this project? (check all that apply)',
         choices: ['Apache', 'Boost', 'BSD', 'Eclipse', 'GNU', 'IBM', 'ISC']
     },
@@ -128,7 +128,7 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     return new Promise((resolve, reject) => {
-        fs.writeFile(fileName, data, err => {
+        fs.writeFile('./README.md', data, err => {
             if (err) {
                 reject(err);
                 // return out of the function here to make sure the promise doesn't accientally execute the ressolve function as well
@@ -147,6 +147,23 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
+    .then(portfolioData => {
+        return generateMarkdown(portfolioData);
+        console.log(portfolioData);
+    })
+    .then(pageReadMe => {
+        return writeToFile(pageReadMe);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+        return copyFile(); 
+    })
+    .then(copyFileResponse => {
+        console.log(copyFileResponse);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 };
 
 // Function call to initialize app
