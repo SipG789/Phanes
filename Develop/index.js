@@ -11,7 +11,7 @@ const questions = [
         // title name
         type: 'input',
         name: 'title',
-        message: 'What is the title of your file?(Required)',
+        message: 'What is the title of your project?(Required)',
         validate: titleInput => {
             if (titleInput) {
                 return true;
@@ -101,7 +101,7 @@ const questions = [
         type: 'checkbox',
         name: 'licenses',
         message: 'What licenses did you use for this project? (check all that apply)',
-        choices: ['Apache', 'Boost', 'BSD', 'Eclipse', 'GNU', 'IBM', 'ISC']
+        choices: ['None', 'Apache2.0', 'Boost', 'BSD', 'Eclipse', 'GNU', 'IBM', 'ISC']
     },
     {
         // GitHub link 
@@ -126,44 +126,23 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    return new Promise((resolve, reject) => {
+function writeToFile(data) {
+
         fs.writeFile('./README.md', data, err => {
             if (err) {
-                reject(err);
-                // return out of the function here to make sure the promise doesn't accientally execute the ressolve function as well
+                console.log(err);
                 return;
             }
-
-            // if everything went well, resolve the Promise and send the successful data to the .then method
-            resolve({
-                ok: true,
-                message: "You did it! File Created!"
-            });
+            console.log('File Write Complete!');
         });
-    });
 };
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(portfolioData => {
-        return generateMarkdown(portfolioData);
-        console.log(portfolioData);
+    .then(markdownData => {
+        writeToFile(generateMarkdown(markdownData))
     })
-    .then(pageReadMe => {
-        return writeToFile(pageReadMe);
-    })
-    .then(writeFileResponse => {
-        console.log(writeFileResponse);
-        return copyFile(); 
-    })
-    .then(copyFileResponse => {
-        console.log(copyFileResponse);
-    })
-    .catch(err => {
-        console.log(err);
-    });
 };
 
 // Function call to initialize app
