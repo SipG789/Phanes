@@ -123,7 +123,7 @@ const questions = [
         name: 'email',
         message: 'Enter your email address'
     }
-]
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
